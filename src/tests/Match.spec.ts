@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Match } from '@/lib/Match';
 import { Teams, Errors } from '@/constants';
 

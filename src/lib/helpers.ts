@@ -1,11 +1,13 @@
-import { Match } from './Match';
+import type { Match } from './Match';
 import { Errors } from '@/constants';
 
-export function isString(value: any): value is string {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function isString(value: unknown): value is string {
   return typeof value === 'string';
 }
 
-export function isNumber(value: any): value is number {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function isNumber(value: unknown): value is number {
   return typeof value === 'number';
 }
 
