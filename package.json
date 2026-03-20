@@ -1,0 +1,38 @@
+{
+  "name": "the-live-football-world-cup-scoreboard",
+  "version": "1.0.0",
+  "description": "Library for live football World Cup scoreboard",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint 'src/**/*.{ts,tsx}' --fix",
+    "format": "prettier --write 'src/**/*.{ts,tsx,json,md}'",
+    "test": "jest --coverage",
+    "prepare": "husky install"
+  },
+  "author": "Ali Ozzaim",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.57.1",
+    "@typescript-eslint/parser": "^8.57.1",
+    "eslint": "^10.0.3",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "husky": "^8.0.0",
+    "jest": "30.3.0",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.1",
+    "ts-jest": "29.4.6",
+    "ts-node": "10.9.2",
+    "typescript": "5.9.3"
+  },
+  "lint-staged": {
+    "*{.ts,.tsx}": [
+      "eslint -c .eslintrc.js --fix",
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
