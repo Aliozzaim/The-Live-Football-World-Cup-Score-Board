@@ -132,6 +132,28 @@ describe('Scoreboard', () => {
     });
   });
 
+  describe('Cache Behavior', () => {
+    it('Given matches have been summarized, When getSummary is called again without changes, Then it should return identical content', () => {
+      startAndScore(Teams.A, Teams.B, 1, 1);
+      startAndScore(Teams.C, Teams.D, 2, 2);
+
+      const summary1 = board.getSummary();
+      const summary2 = board.getSummary();
+
+      expect(summary2).toEqual(summary1);
+    });
+
+    it('Given a match is updated, When getSummary is called, Then the summary should reflect the updated score', () => {
+      startAndScore(Teams.A, Teams.B, 1, 1);
+
+      board.updateScore(Teams.A, Teams.B, 5, 5);
+      const summary = board.getSummary();
+
+      expect(summary[0].homeScore).toBe(5);
+      expect(summary[0].awayScore).toBe(5);
+    });
+  });
+
   describe('Negative Tests', () => {
     it('Given extremely large scores, When updating score, Then it should handle correctly', () => {
       const LARGE_SCORE = Number.MAX_SAFE_INTEGER;
